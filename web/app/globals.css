@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Pacifico&family=Space+Grotesk:wght@600;700&display=swap');
+
+/* Eat Sooner colors: blueberry blue, blood orange, hunter green and strong gold. No white. */
+:root {
+  --bg: #2f3e9e;
+  --card: #25317f;
+  --line: #5563c4;
+  --deep: #1b2466;
+  --gold: #f2b600;
+  --orange: #d1350f;
+  --green: #355e3b;
+  --ink: #fff4d6;
+  --muted: #c9d0f5;
+  --dark: #1a1a1a;
+}
+
+/* Courier screens use darker blues. */
+.theme-courier {
+  --bg: #1f2a6e;
+  --card: #18205a;
+  --line: #4452a8;
+  --deep: #111845;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+}
+.page { min-height: 100vh; background: var(--bg); }
+main.wrap { max-width: 460px; margin: 0 auto; padding: 20px 16px 48px; display: flex; flex-direction: column; gap: 18px; }
+main.wide { max-width: 960px; }
+a { color: var(--gold); }
+a:hover { color: #ffd95c; }
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; margin: 0; line-height: 1.15; }
+h1 { font-size: 26px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+p { margin: 0; }
+.muted { color: var(--muted); font-size: 14px; }
+.center { text-align: center; }
+.logo-row { display: flex; justify-content: center; }
+
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+.stack { display: flex; flex-direction: column; gap: 10px; }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.tile { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 2px; }
+.tile b { font-family: 'Space Grotesk', sans-serif; font-size: 22px; }
+.tile span { font-size: 12px; color: var(--muted); }
+
+label, .label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; }
+input, select, textarea {
+  min-height: 48px; border-radius: 12px; border: 1px solid var(--line); background: var(--deep);
+  color: var(--ink); padding: 10px 14px; font: 16px Inter, sans-serif; width: 100%;
+}
+textarea { min-height: 88px; resize: vertical; }
+input::placeholder, textarea::placeholder { color: #9aa5e0; }
+.check { flex-direction: row; align-items: flex-start; gap: 10px; font-weight: 400; font-size: 14px; }
+.check input { width: 22px; min-height: 22px; height: 22px; margin-top: 1px; accent-color: var(--gold); flex-shrink: 0; }
+
+/* Radio buttons shown as segmented choices */
+.choices { display: grid; gap: 8px; border: 0; padding: 0; margin: 0; }
+.choices.c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.choices.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.choices.c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.choices legend { font-size: 13px; font-weight: 500; margin-bottom: 6px; padding: 0; }
+.choice { position: relative; }
+.choice input { position: absolute; opacity: 0; width: 1px; height: 1px; min-height: 0; }
+.choice span {
+  min-height: 48px; border-radius: 12px; border: 1px solid var(--line); background: var(--deep); color: var(--ink);
+  font-size: 14px; padding: 6px 4px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2px; cursor: pointer; text-align: center;
+}
+.choice small { font-size: 11px; color: var(--muted); }
+.choice input:checked + span { background: var(--gold); border-color: var(--gold); color: var(--dark); font-weight: 600; }
+.choice input:checked + span small { color: #3a3000; }
+.choice input:focus-visible + span { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.btn {
+  min-height: 56px; border-radius: 16px; border: none; background: var(--orange); color: var(--ink);
+  font: 700 17px 'Space Grotesk', sans-serif; cursor: pointer; width: 100%; padding: 0 16px;
+  display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
+}
+.btn:hover { color: var(--ink); filter: brightness(1.08); }
+.btn.gold { background: var(--gold); color: var(--dark); }
+.btn.gold:hover { color: var(--dark); }
+.btn-ghost {
+  min-height: 44px; padding: 0 16px; border-radius: 14px; border: 1px solid var(--line); background: none;
+  color: var(--ink); font: 500 14px Inter, sans-serif; cursor: pointer; display: inline-flex; align-items: center;
+  justify-content: center; text-decoration: none;
+}
+.btn-ghost:hover { color: var(--ink); background: var(--deep); }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--gold); outline-offset: 2px;
+}
+form.inline { display: inline; }
+
+.alert { border-radius: 12px; padding: 12px 14px; font-size: 14px; font-weight: 500; }
+.alert.error { background: var(--orange); color: var(--ink); }
+.alert.info { background: var(--green); color: var(--ink); }
+
+.badge { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 10px; white-space: nowrap; }
+.b-requested, .b-pending { background: var(--gold); color: var(--dark); }
+.b-accepted, .b-picked_up, .b-approved { background: var(--green); color: var(--ink); }
+.b-delivered { background: var(--deep); color: var(--muted); }
+.b-cancelled, .b-paused { background: var(--orange); color: var(--ink); }
+
+.fee { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 26px; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 500; background: var(--deep); }
+tr:last-child td { border-bottom: none; }
